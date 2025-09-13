@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+             background: linear-gradient(to right, rgb(17, 146, 197), rgb(6, 134, 117)); 
+            display: flex;
+            justify-content: center;
+            padding: 120px;
+            font-family: sans-serif;
+        }
+        .container
+        {
+            position: fixed;
+            background-color: white;
+            width: 500px;
+            height: 400px;
+            border-radius: 30px;
+            margin-top: 150px;
+        }
+        .net
+        {
+            display: flex;
+            background-color: black;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            margin-top: -20px;
+            height: 50px;  
+        }
+        h2
+        {
+            text-align: center;
+            font-weight: 300;
+            color: white;
+            margin-left: 170px;
+            margin-top: 8px;
+        }
+        input
+        {
+            width: 20rem;
+            height: 28px;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: white;
+            margin-top: 10px;
+            margin-right: -50px;
+            display: block;
+        }
+        label
+        {
+           font-size: 15px;
+           display: block;
+           margin-top: 10px;
+        }
+        .sal
+        {
+            margin-left: 85px; 
+            margin-top: 50px;
+        }
+        button
+        {
+            width: 20rem;
+            height: 32px;
+            margin-top: 30px;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: black;
+            color: cadetblue;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover
+        {
+            background-color: cadetblue;
+            color: black;
+        }
+        p
+        { 
+            color: rgb(184, 8, 8);
+        }
+         .top-img
+        {
+            margin-top: -80px;
+            margin-left: 10px;
+        }
+        img{
+            border-radius: 20px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="top-img">
+        <img src="assets/bank.jpg" alt="">
+    </div>
+    <div class="container">
+        <div class="net">
+           <h2>Simple Interest</h2>
+        </div> 
+        <div class="sal">
+            <label for="">Principal</label>
+            <input type="number" id="pricipal">
+             <label for="">Percentage (%)</label>
+            <input type="number" id="percentage">
+            <label for="">Time Duration</label>
+            <input type="number"  id="duration">
+            <button type="button" onclick="getInterest()">Get Interest</button>
+            <p id = "total"></p>
+        </div>  
+    </div>
+    <script>
+        function getInterest()
+        { 
+            const pricipal = parseFloat(document.getElementById('pricipal').value) || 0
+            const percentage = parseFloat(document.getElementById('percentage').value) || 0
+            const duration =parseFloat(document.getElementById('duration').value) || 0
+            if(pricipal === 0 || percentage ===  0|| duration === 0)
+              document.getElementById('total').innerHTML = `Kindly Enter Value`;
+            else
+            {
+              const Interest = (pricipal * percentage * duration) / 100; 
+              document.getElementById('total').innerHTML = `Total Interst : ${Interest.toFixed(2)}`
+              document.getElementById('total').style.color = 'black'
+            } 
+        }
+    </script>
+</body>
+</html>
